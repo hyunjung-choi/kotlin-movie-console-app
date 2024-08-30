@@ -1,4 +1,4 @@
-package util.console
+package utils.console
 
 import java.util.*
 

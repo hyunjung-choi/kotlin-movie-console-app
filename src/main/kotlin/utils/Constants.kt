@@ -9,3 +9,12 @@ object Message {
     const val SHOW_BOOKING_INFO = "현재 예매 내역 입니다."
     const val ERROR_INPUT_NUM = "잘못된 입력입니다. 숫자를 입력해 주세요"
 }
+
+// ANSI escape code
+const val RESET = "\u001B[0m"
+const val RED = "\u001B[31m"
+const val GREEN = "\u001B[32m"
+const val YELLOW = "\u001B[33m"
+const val BLUE = "\u001B[34m"
+const val PURPLE = "\u001B[35m"
+const val CYAN = "\u001B[36m"
