@@ -1,7 +1,7 @@
 package org.sessac.utils
 
-import org.sessac.util.RED
-import org.sessac.util.RESET
+import org.sessac.utils.RED
+import org.sessac.utils.RESET
 import java.util.*
 
 object InputUtils {

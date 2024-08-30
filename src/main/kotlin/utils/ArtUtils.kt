@@ -1,9 +1,5 @@
 package org.sessac.utils
 
-import org.sessac.util.CYAN
-import org.sessac.util.GREEN
-import org.sessac.util.RESET
-
 object ArtUtils {
     fun printCinemaArt() {
         println(
@@ -12,7 +8,6 @@ object ArtUtils {
         ────────────────────────────
               🎥 새싹 영화관
              ✨ 환영합니다! ✨
-               (˵ •̀ ᴗ - ˵ ) ✧
         ────────────────────────────
         $RESET
         """.trimIndent()

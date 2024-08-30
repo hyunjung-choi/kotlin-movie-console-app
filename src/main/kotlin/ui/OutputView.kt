@@ -1,7 +1,7 @@
 package org.sessac.ui
 
-import org.sessac.util.Message
-import org.sessac.util.type.ConsoleType
+import org.sessac.utils.Message
+import org.sessac.utils.type.ConsoleType
 
 class OutputView {
     init {

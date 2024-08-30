@@ -1,7 +1,7 @@
 package org.sessac.domain.model
 
-import domain.model.Movie
 import domain.repository.Theater
+import org.sessac.data.model.Movie
 import java.time.LocalDateTime
 
 data class Show(

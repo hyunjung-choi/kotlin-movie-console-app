@@ -1,4 +1,4 @@
-package org.sessac.util
+package org.sessac.utils
 
 object Message {
     const val CHOOSE_MENU = "메뉴를 선택해 주세요"
