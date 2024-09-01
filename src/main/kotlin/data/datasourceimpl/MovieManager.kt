@@ -1,7 +1,7 @@
-package org.sessac.data.manager
+package data.datasourceimpl
 
-import domain.repository.MovieAction
 import org.sessac.data.datasource.FileManager
+import org.sessac.data.datasource.MovieAction
 import org.sessac.data.model.Seat
 import org.sessac.data.model.SeatStatus
 import org.sessac.utils.ArtUtils

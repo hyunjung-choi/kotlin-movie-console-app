@@ -1,4 +1,4 @@
-package domain.repository
+package org.sessac.data.datasource
 
 interface MovieAction {
     fun displaySeats()
