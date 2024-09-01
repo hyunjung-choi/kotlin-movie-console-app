@@ -1,7 +1,7 @@
 package org.sessac.utils
 
 object Message {
-    const val CHOOSE_MENU = "메뉴를 선택해 주세요"
+    const val CHOOSE_MENU = "-------메뉴---------"
     const val MOVIE_BOOKING = "영화 예매를 하시겠습니까?"
     const val SHOW_MOVIE_LIST = "현재 상영 영화 목록 입니다."
     const val SHOW_THEATER_INFO = "상영관 정보를 확인합니다."
