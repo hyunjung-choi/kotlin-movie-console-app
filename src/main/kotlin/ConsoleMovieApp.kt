@@ -1,7 +1,7 @@
 package org.sessac
 
+import data.repositoryimpl.MovieRepositoryImpl
 import org.sessac.data.datasource.FileManager
-import data.repository.MovieRepositoryImpl
 import org.sessac.domain.usecase.MovieUseCase
 import org.sessac.ui.InputView
 import org.sessac.ui.OutputView

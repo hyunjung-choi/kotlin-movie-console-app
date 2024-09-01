@@ -1,4 +1,4 @@
-package data.repository
+package data.repositoryimpl
 
 import data.datasource.MovieInfos.movieInfos
 import data.datasourceimpl.MovieManager
