@@ -19,6 +19,10 @@ class FileManager {
     }
 
     fun appendToFile(fileName: String, content: List<String>) {
-        File(fileName).appendText(content.joinToString(separator = "\n", postfix = "\n"))
+        val file = File(fileName)
+        if (!file.exists()) {
+            file.createNewFile()
+        }
+        file.appendText(content.joinToString(separator = "\n", postfix = "\n"))
     }
 }
