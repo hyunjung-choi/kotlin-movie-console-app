@@ -11,7 +11,7 @@ class User(val name: String) : Booking {
         return if (show.theater.bookSeat(seatNumber)) {
             val bookingInfo = BookingInfo(show, seatNumber)
             bookings.add(bookingInfo)
-            println("Booking successful for ${show.movie.title} at ${show.showTime} in seat $seatNumber")
+            println("Booking successful for ${show.movieManager.title} at ${show.showTime} in seat $seatNumber")
             true
         } else {
             false

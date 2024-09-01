@@ -1,10 +1,10 @@
 package org.sessac.ui
 
-import org.sessac.data.model.Movie
+import org.sessac.data.model.MovieManager
 import org.sessac.domain.usecase.MovieUseCase
 import org.sessac.utils.*
 
-class Cinema(private val useCase: MovieUseCase, private val movies: List<Movie>) {
+class Cinema(private val useCase: MovieUseCase, private val movieManagers: List<MovieManager>) {
 
     fun start() {
         ArtUtils.printCinemaArt()
@@ -25,34 +25,34 @@ class Cinema(private val useCase: MovieUseCase, private val movies: List<Movie>)
         println("${PURPLE}보고 싶은 영화를 골라주세요:${RESET}")
     }
 
-    private fun selectMovie(): Movie? {
-        movies.forEachIndexed { index, movie -> println("${movie.emoji} ${index + 1}. ${movie.title}") }
-        val choice = InputUtils.getValidatedIntInput("\n${YELLOW}영화 번호를 입력해주세요: ${RESET}", 1, movies.size)
-        return movies[choice - 1]
+    private fun selectMovie(): MovieManager? {
+        movieManagers.forEachIndexed { index, movie -> println("${movie.emoji} ${index + 1}. ${movie.title}") }
+        val choice = InputUtils.getValidatedIntInput("\n${YELLOW}영화 번호를 입력해주세요: ${RESET}", 1, movieManagers.size)
+        return movieManagers[choice - 1]
     }
 
-    private fun showSeats(selectedMovie: Movie) {
-        println("\n${GREEN}선택한 영화: ${selectedMovie.emoji} ${selectedMovie.title}${RESET}\n")
+    private fun showSeats(selectedMovieManager: MovieManager) {
+        println("\n${GREEN}선택한 영화: ${selectedMovieManager.emoji} ${selectedMovieManager.title}${RESET}\n")
         ArtUtils.printSeatArt()
         println("${BLUE}예매 가능한 좌석을 확인해 주세요 (\uD83D\uDFE9 = 예약 가능, \uD83D\uDFE5 = 예약됨):${RESET}")
-        selectedMovie.displaySeats()
+        selectedMovieManager.displaySeats()
     }
 
-    private fun selectSeat(movie: Movie) {
+    private fun selectSeat(movieManager: MovieManager) {
         val row = InputUtils.getIntInput("\n${YELLOW}행 번호를 입력해주세요: ${RESET}") - 1
         val col = InputUtils.getIntInput("${YELLOW}열 번호를 입력해주세요: ${RESET}") - 1
 
-        if (movie.bookSeat(row, col)) {
+        if (movieManager.bookSeat(row, col)) {
             ArtUtils.printConfirmationArt()
-            useCase.saveMovie(movie)
+            useCase.saveMovie(movieManager)
             println("\n${GREEN}예매가 완료되었어요! 즐거운 영화 관람 되세요! 🍿✨${RESET}")
         } else {
             println("${RED}잘못된 좌석 선택이거나 이미 예약된 좌석이에요!${RESET}")
         }
     }
 
-    private fun showFinalSeatArrangement(movie: Movie) {
+    private fun showFinalSeatArrangement(movieManager: MovieManager) {
         println("\n${BLUE}최종 좌석 배치:${RESET}")
-        movie.displaySeats()
+        movieManager.displaySeats()
     }
 }

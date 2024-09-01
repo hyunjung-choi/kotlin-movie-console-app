@@ -3,13 +3,13 @@ package org.sessac.data.model
 import org.sessac.utils.ArtUtils
 import org.sessac.utils.FileUtils
 
-data class Movie(val title: String, val emoji: String, val seats: Array<Array<Seat>>) {
+data class MovieManager(val title: String, val emoji: String, val seats: Array<Array<Seat>>) {
     companion object {
-        fun createMovie(title: String, emoji: String, rows: Int, cols: Int): Movie {
+        fun createMovie(title: String, emoji: String, rows: Int, cols: Int): MovieManager {
             val seats = Array(rows) { row -> Array(cols) { col -> Seat(row, col) } }
-            val movie = Movie(title, emoji, seats)
-            movie.loadSeatsFromFile()
-            return movie
+            val movieManager = MovieManager(title, emoji, seats)
+            movieManager.loadSeatsFromFile()
+            return movieManager
         }
     }
 
