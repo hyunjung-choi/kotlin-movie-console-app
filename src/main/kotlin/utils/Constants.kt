@@ -18,3 +18,6 @@ const val YELLOW = "\u001B[33m"
 const val BLUE = "\u001B[34m"
 const val PURPLE = "\u001B[35m"
 const val CYAN = "\u001B[36m"
+
+const val ROW = 5
+const val COR = 5
