@@ -1,5 +1,6 @@
 package org.sessac.data.repository
 
+import domain.model.MovieInfo
 import org.sessac.data.model.MovieManager
 import org.sessac.data.model.Seat
 import org.sessac.data.model.SeatStatus
@@ -13,10 +14,10 @@ class MovieRepository {
         FileUtils.saveToFile("${movieManager.title.replace(" ", "_")}_seats.txt", content)
     }
 
-    fun loadMovie(title: String, emoji: String, rows: Int, cols: Int): MovieManager {
-        val seats = Array(rows) { row -> Array(cols) { col -> Seat(row, col) } }
-        val movieManager = MovieManager(title, emoji, seats)
-        val content = FileUtils.loadFromFile("${title.replace(" ", "_")}_seats.txt")
+    fun loadMovie(movieInfo: MovieInfo): MovieManager {
+        val seats = Array(movieInfo.rows) { row -> Array(movieInfo.cols) { col -> Seat(row, col) } }
+        val movieManager = MovieManager(movieInfo.title, movieInfo.emoji, seats)
+        val content = FileUtils.loadFromFile("${movieInfo.title.replace(" ", "_")}_seats.txt")
         content?.forEachIndexed { rowIndex, line ->
             val statuses = line.split(",")
             statuses.forEachIndexed { colIndex, status ->

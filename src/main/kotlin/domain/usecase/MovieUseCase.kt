@@ -1,5 +1,6 @@
 package org.sessac.domain.usecase
 
+import domain.model.MovieInfo
 import org.sessac.data.model.MovieManager
 import org.sessac.data.repository.MovieRepository
 
@@ -8,7 +9,7 @@ class MovieUseCase(private val repository: MovieRepository) {
         repository.saveMovie(movieManager)
     }
 
-    fun loadMovie(title: String, emoji: String, rows: Int, cols: Int): MovieManager {
-        return repository.loadMovie(title, emoji, rows, cols)
+    fun loadMovie(movieInfo: MovieInfo): MovieManager {
+        return repository.loadMovie(movieInfo)
     }
 }
