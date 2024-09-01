@@ -1,7 +1,8 @@
 package org.sessac.data.model
 
 import org.sessac.utils.ArtUtils
-import org.sessac.utils.FileUtils
+import java.io.BufferedReader
+import java.io.File
 
 data class Movie(val title: String, val emoji: String, val seats: Array<Array<Seat>>) {
     companion object {
@@ -31,20 +32,16 @@ data class Movie(val title: String, val emoji: String, val seats: Array<Array<Se
     }
 
     private fun saveSeatsToFile() {
-        val content = seats.map { row ->
-            row.joinToString(",") { it.status.name }
+        File("${title.replace(" ", "_")}_seats.txt").bufferedWriter().use { writer ->
+            writer.write(seats.joinToString("\n") { row ->
+                row.joinToString(",") { it.status.name }
+            })
         }
-        FileUtils.saveToFile("${title.replace(" ", "_")}_seats.txt", content)
     }
 
     private fun loadSeatsFromFile() {
-        val content = FileUtils.loadFromFile("${title.replace(" ", "_")}_seats.txt")
-        content?.forEachIndexed { rowIndex, line ->
-            val statuses = line.split(",")
-            statuses.forEachIndexed { colIndex, status ->
-                seats[rowIndex][colIndex].status = SeatStatus.valueOf(status)
-            }
-        }
+        val content = File("${title.replace(" ", "_")}_seats.txt").bufferedReader().use(BufferedReader::readText)
+        println(content)
     }
 
     fun getSeatArt() {
