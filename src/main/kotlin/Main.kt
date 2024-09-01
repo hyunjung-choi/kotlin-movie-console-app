@@ -1,20 +1,19 @@
 package org.sessac
 
-import org.sessac.data.repository.MovieRepository
+import org.sessac.data.datasource.FileManager
+import data.repository.MovieRepositoryImpl
 import org.sessac.domain.usecase.MovieUseCase
-import org.sessac.ui.Cinema
+import org.sessac.ui.InputView
+import org.sessac.ui.OutputView
+import org.sessac.ui.controller.Controller
+import utils.console.Console
 
 fun main() {
-    val repository = MovieRepository()
-    val useCase = MovieUseCase(repository)
+    Controller(
+        inputView = InputView(),
+        outputView = OutputView(),
+        movieUseCase = MovieUseCase(MovieRepositoryImpl(FileManager()))
+    ).start()
 
-    val movies = listOf(
-        useCase.loadMovie("바비", "🍿", 5, 5),
-        useCase.loadMovie("스파이더맨", "🦸‍♂️", 5, 5),
-        useCase.loadMovie("라이온 킹", "👑", 5, 5),
-        useCase.loadMovie("해리포터", "🪄", 5, 5)
-    )
-
-    val cinema = Cinema(useCase, movies)
-    cinema.start()
+    Console.close()
 }
