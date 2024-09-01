@@ -1,7 +1,7 @@
 package domain.repository
 
+import data.datasourceimpl.MovieManager
 import domain.model.MovieInfo
-import org.sessac.data.manager.MovieManager
 
 interface MovieRepository {
     fun getAllMovies(): List<MovieInfo>
