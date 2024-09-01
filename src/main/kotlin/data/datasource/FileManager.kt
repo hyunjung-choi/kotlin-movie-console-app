@@ -1,4 +1,4 @@
-package data.manager
+package org.sessac.data.datasource
 
 import java.io.File
 
