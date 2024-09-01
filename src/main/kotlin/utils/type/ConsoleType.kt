@@ -1,6 +1,6 @@
-package org.sessac.util.type
+package org.sessac.utils.type
 
-import org.sessac.util.Message
+import org.sessac.utils.Message
 
 enum class ConsoleType(
     val menuNum: Int,

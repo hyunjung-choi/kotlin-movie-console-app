@@ -1,6 +1,6 @@
 package org.sessac.ui
 
-import util.console.Console
+import utils.console.Console
 
 class InputView {
     fun chooseMenu(): String {

@@ -3,8 +3,8 @@ package org.sessac.ui.controller
 import domain.repository.MenuAction
 import org.sessac.ui.InputView
 import org.sessac.ui.OutputView
-import org.sessac.util.Message
-import org.sessac.util.type.ConsoleType
+import org.sessac.utils.Message
+import org.sessac.utils.type.ConsoleType
 
 class Controller(
     private val inputView: InputView,

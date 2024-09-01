@@ -1,22 +1,20 @@
 package org.sessac
 
-import data.repository.CheckBookingInfoAction
-import data.repository.MovieBookingAction
-import data.repository.User
-import org.sessac.ui.InputView
-import org.sessac.ui.OutputView
-import org.sessac.ui.controller.Controller
-import util.console.Console
+import org.sessac.data.repository.MovieRepository
+import org.sessac.domain.usecase.MovieUseCase
+import org.sessac.ui.Cinema
 
 fun main() {
-    val user = User("새싹")
+    val repository = MovieRepository()
+    val useCase = MovieUseCase(repository)
 
-    Controller(
-        inputView = InputView(),
-        outputView = OutputView(),
-        movieBookingAction = MovieBookingAction(user),
-        checkBookingInfoAction = CheckBookingInfoAction(user),
-    ).selectMenu()
+    val movies = listOf(
+        useCase.loadMovie("바비", "🍿", 5, 5),
+        useCase.loadMovie("스파이더맨", "🦸‍♂️", 5, 5),
+        useCase.loadMovie("라이온 킹", "👑", 5, 5),
+        useCase.loadMovie("해리포터", "🪄", 5, 5)
+    )
 
-    Console.close()
+    val cinema = Cinema(useCase, movies)
+    cinema.start()
 }
