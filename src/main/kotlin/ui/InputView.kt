@@ -31,12 +31,14 @@ class InputView {
         while (true) {
             print(prompt())
             try {
-                val input = Console.readLine().toInt()
-
-                if (Console.readLine().toInt() in range) return input
-                else println("${RED}잘못된 입력입니다. 다시 시도하세요.$RESET")
+                val number = Console.readLine().toInt()
+                if (number in range) {
+                    return number
+                } else {
+                    println("${RED}잘못된 입력입니다. 범위는 ${range.first}부터 ${range.last}까지입니다. 다시 시도하세요.$RESET")
+                }
             } catch (e: NumberFormatException) {
-                println("${RED}잘못된 입력입니다. 다시 시도하세요.$RESET")
+                println("${RED}잘못된 입력입니다. 숫자를 입력하세요. 다시 시도하세요.$RESET")
             }
         }
     }
